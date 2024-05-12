@@ -11,7 +11,9 @@ pipeline{
         }
         stage("Build & Test"){
             steps {
-                sh 'python -m unittest test-app.py'
+                sh '''	sudo apt update
+			sudo apt install python3
+			python -m unittest test-app.py'''
             }
         }
 
