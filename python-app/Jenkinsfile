@@ -1,0 +1,40 @@
+pipeline{
+    agent any
+
+    stages{
+        stage("Git Checkout"){
+            steps{
+                // sh 'git clone git@github.com:anishkasaxena/simple-python-app.git'
+                git branch: 'main' , url: 'https://github.com/anishkasaxena/simple-python-app.git'
+
+            }
+        }
+        stage("Build & Test"){
+            steps {
+                sh 'python -m unittest test_hello_world.py'
+            }
+        }
+
+        stage("Sonarqube"){
+            steps{
+                echo "yet to come!"
+            }
+        }
+
+        stage("Build and Push Docker Image"){
+            steps{
+               sh 'docker build -t anishka012/python-app .'
+               sh 'docker push anishka012/python-app'
+
+            }
+        }
+        stage("Code Deploy"){
+            stage{
+
+            }
+        }
+
+    }
+
+
+}
