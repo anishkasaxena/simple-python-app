@@ -29,7 +29,8 @@ pipeline{
             }
         }
         stage("Code Deploy"){
-            stage{
+            steps{
+		echo "comming soon!!"
 
             }
         }
