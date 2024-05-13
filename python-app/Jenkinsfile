@@ -1,6 +1,8 @@
 pipeline{
     agent {
-	     docker{image 'python:3.13.0b1-slim-bookworm' }
+	     docker{
+		     image 'python:3.13.0b1-slim-bookworm' 
+	     }
     }
     stages{
         stage("Git Checkout"){
@@ -12,7 +14,7 @@ pipeline{
         }
         stage("Build & Test"){
             steps {
-  			    python -m unittest test-app.py
+  			    sh 'python -m unittest test-app.py'
             }
         }
 
