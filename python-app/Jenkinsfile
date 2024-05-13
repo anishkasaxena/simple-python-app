@@ -14,7 +14,7 @@ pipeline{
         }
         stage("Build & Test"){
             steps {
-  			    sh 'python -m unittest test-app.py'
+  			    sh 'python -m unittest test_hello_world'
             }
         }
 
